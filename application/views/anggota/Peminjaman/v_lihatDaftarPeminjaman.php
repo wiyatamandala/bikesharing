@@ -1,3 +1,4 @@
+<?php echo $message;?>	
 	<table id="dynamic-table" class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -12,6 +13,37 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->no_kartu_anggota ; ?></td>
+				<td class = "center"><?php echo $row->nomor_sepeda ; ?></td>
+				<td class = "center"><?php echo $row->id_stasiun ;echo ' - ';echo $row->nama ; ?></td>
+				<td class = "center"><?php echo $row->datetime_kembali ; ?></td>
+				<td class = "center"><?php echo $row->biaya ; ?></td>
+				<td class = "center"><?php echo $row->denda ; ?></td>
+														
+				<td class = "center">
+					<?php 
+					if($row->datetime_kembali==''){?>
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>anggota/peminjaman/kembali/<?php echo $row->no_kartu_anggota;?>/<?php echo $row->datetime_pinjam;?>" class="tooltip-success" data-rel="tooltip" title="Kembalikan">
+							<i class="ace-icon fa fa-exchange bigger-130"></i>
+						</a>&nbsp; &nbsp;						
+					</div>
+					<?php
+					;}else{ echo '';}
+					?>
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

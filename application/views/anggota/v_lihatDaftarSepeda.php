@@ -14,6 +14,38 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->nomor ; ?></td>
+				<td class = "center"><?php echo $row->merk ; ?></td>
+				<td class = "center"><?php echo $row->jenis ; ?></td>
+				<td class = "center"><?php echo $row->nama ; ?></td>
+				<td class = "center"><?php echo $row->status ; ?></td>
+				<td class = "center"><?php echo $row->no_kartu_penyumbang ; ?></td>
+														
+				<td class = "center">
+					<?php 
+					if($row->status=='t'){?>
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>anggota/sepeda/pinjam/<?php echo $row->nomor; ?>/<?php echo $row->id_stasiun; ?>" class="tooltip-success" data-rel="tooltip" title="Pinjam">
+							<i class="ace-icon fa fa-book bigger-130"></i>
+						</a>&nbsp; &nbsp;
+
+					</div>
+					<?php
+					;}else{ echo '';}
+					?>
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

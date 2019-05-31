@@ -14,6 +14,39 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->id_voucher ; ?></td>
+				<td class = "center"><?php echo $row->nv ; ?></td>
+				<td class = "center"><?php echo $row->kategori ; ?></td>
+				<td class = "center"><?php echo $row->nilai_poin ; ?></td>
+				<td class = "center"><?php echo $row->deskripsi ; ?></td>
+				<td class = "center"><?php echo $row->no_kartu_anggota ; echo ' - '; echo $row->np ;?></td>
+														
+				<td class = "center">
+					<?php 
+					if($row->no_kartu_anggota==''){?>
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>anggota/voucher/edit/<?php echo $row->id_voucher; ?>" class="tooltip-success" data-rel="tooltip" title="Claim">
+							<i class="ace-icon fa fa-external-link bigger-130"></i>
+						</a>&nbsp; &nbsp;
+						
+					</div>
+					<?php
+					;}else{ echo '';}
+					?>
+					
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

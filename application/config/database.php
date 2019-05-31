@@ -79,6 +79,7 @@ $db['default'] = array(
 	'username' => 'postgres',
 	'password' => 'wira3896',
 	'database' => 'bikesharing',
+	'schema' => 'public',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

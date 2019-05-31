@@ -11,6 +11,25 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					$no = 1;
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $no++; ?></td>
+				<td class = "center"><?php echo $row->id_laporan ; ?></td>
+				<td class = "center"><?php echo $row->datetime_pinjam ; ?></td>
+				<td class = "center"><?php echo $row->no_kartu_anggota ; ?></td>
+				<td class = "center"><?php echo $row->denda ; ?></td>
+				<td class = "center"><?php echo $row->status ; ?></td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

@@ -23,7 +23,8 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/..." onsubmit="return validasi_input(this);">
+<form id="tambahAcara" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/acara/simpan" onsubmit="return validasi_input(this);">
+    <input name="auto_id" id="auto_id" class="form-control" type="hidden" value="<?php echo $auto_id;?>">
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -47,16 +48,20 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Deskripsi</label>
                 <div class="col-md-7">
-                    <input name="nama" id="deskripsi" placeholder="Deskripsi" class="form-control" type="text" required>
+                    <input name="deskripsi" id="deskripsi" placeholder="Deskripsi" class="form-control" type="text" required>
                     <span class="help-block"></span>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-md-3">Gratis</label>
-                <div class="col-md-5">
-                    <input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" />
-                    <span class="lbl"></span>
+                <div class="col-md-3">
+                    <select name="is_free" id="is_free" class="form-control" required onclick="ltarik()" >
+                        <option value="">--Pilih--</option>
+                        <option value="true">Ya</option>
+                        <option value="false">Tidak</option>
+                    </select>
+                    <span class="help-block"></span>
                 </div>
             </div>
 
@@ -79,12 +84,14 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Stasiun</label>
                 <div class="col-md-4">
-                    <select name="level" id="stasiun" class="form-control" required onclick="ltarik()" >
-                        <option value="">--Pilih Stasiun--</option>
-                        <option value="isikan value">Stasiun1</option>
-                        <option value="isikan value">Stasiun2</option>
-                        <option value="isikan value">dst..</option>
-                    </select>
+                    <?php
+                            echo "<select name='id_stasiun1' id='id_stasiun1' required>
+                                <option value='' disabled selected>-Pilih Stasiun-</option>";
+                                foreach ($id_stasiun1->result() as $row_stasiun) {  
+                                    echo "<option value='".$row_stasiun->id_stasiun."'>".$row_stasiun->nama."</option>";
+                                }
+                            echo"</select>";
+                    ?>
                     <span class="help-block"></span>
                 </div>
             </div>

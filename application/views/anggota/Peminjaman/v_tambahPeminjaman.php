@@ -23,7 +23,12 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/..." onsubmit="return validasi_input(this);">
+<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>anggota/peminjaman/simpan" onsubmit="return validasi_input(this);">
+    <input name="no_kartu_anggota" id="no_kartu_anggota" type="hidden" class="form-control" value="<?php echo $no_kartu_anggota;?>">
+    <input name="datetime_pinjam" id="datetime_pinjam" type="hidden" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>">
+    <!-- <input name="id_stasiun" id="id_stasiun" class="form-control" value="<?php $id_stasiun;?>"> -->
+
+
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -36,24 +41,28 @@
     <div class="row">
         <div class="col-md-6 col">
 
-            <div class="form-group">
+        
+
+            <div class="form-group"><!-- <?php echo $this->session->userdata('tgl_lahir'); ?> -->
                 <label class="control-label col-md-3">Sepeda-Stasiun</label>
                 <div class="col-md-7">
-                    <select name="sepedaStasiun" id="sepedaStasiun" class="form-control" required onclick="ltarik()" >
-                        <option value="">--Pilih Sepeda-Stasiun--</option>
-                        <option value="isikan value">Sepeda-Stasiun1</option>
-                        <option value="isikan value">Sepeda-Stasiun2</option>
-                        <option value="isikan value">dst..</option>
-                    </select>
+                    <?php
+                            echo "<select name='nomor_sepeda1' id='nomor_sepeda1' required>
+                                <option value='' disabled selected>-Pilih Sepeda-</option>";
+                                foreach ($nomor_sepeda1->result() as $row_sepeda) {  
+                                    echo "<option value='".$row_sepeda->nomor."'>".$row_sepeda->nomor.' - '.$row_sepeda->nama."</option>";
+                                }
+                            echo"</select>";
+                    ?>
                     <span class="help-block"></span>
                 </div>
-            </div>
 
          <br><br><br>
             </div>
         
 
         </div>
+    </div>
 
 
 

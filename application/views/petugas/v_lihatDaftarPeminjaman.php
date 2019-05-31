@@ -11,6 +11,24 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->no_kartu_anggota ; ?></td>
+				<td class = "center"><?php echo $row->nomor_sepeda ; ?></td>
+				<td class = "center"><?php echo $row->id_stasiun ;echo ' - ';echo $row->nama ; ?></td>
+				<td class = "center"><?php echo $row->datetime_kembali ; ?></td>
+				<td class = "center"><?php echo $row->biaya ; ?></td>
+				<td class = "center"><?php echo $row->denda ; ?></td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

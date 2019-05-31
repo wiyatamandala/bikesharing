@@ -1,5 +1,3 @@
-<?php echo $message;?>
-
 	<table id="dynamic-table" class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -13,6 +11,24 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->id_voucher ; ?></td>
+				<td class = "center"><?php echo $row->nv ; ?></td>
+				<td class = "center"><?php echo $row->kategori ; ?></td>
+				<td class = "center"><?php echo $row->nilai_poin ; ?></td>
+				<td class = "center"><?php echo $row->deskripsi ; ?></td>
+				<td class = "center"><?php echo $row->no_kartu_anggota ; echo ' - '; echo $row->np ;?></td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

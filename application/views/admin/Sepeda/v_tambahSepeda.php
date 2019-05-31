@@ -23,7 +23,8 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>isikan fungsi simpan controller" onsubmit="return validasi_input(this);">
+<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/sepeda/simpan" onsubmit="return validasi_input(this);">
+    <input name="auto_id" id="auto_id" class="form-control" type="hidden" value="<?php echo $auto_id;?>">
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -57,8 +58,8 @@
                 <div class="col-md-4">
                     <select name="status" id="sttus" class="form-control" required onclick="ltarik()" >
                         <option value="">--Pilih Status--</option>
-                        <option value="isikan value">Tersedia</option>
-                        <option value="isikan value">Tidak Tersedia</option>
+                        <option value="true">Tersedia</option>
+                        <option value="false">Tidak Tersedia</option>
                     </select>
                     <span class="help-block"></span>
                 </div>
@@ -67,12 +68,14 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Stasiun</label>
                 <div class="col-md-4">
-                    <select name="stasiun" id="stasiun" class="form-control" required onclick="ltarik()" >
-                        <option value="">--Pilih Stasiun--</option>
-                        <option value="isikan value">Stasiun1</option>
-                        <option value="isikan value">Stasiun2</option>
-                        <option value="isikan value">dst..</option>
-                    </select>
+                    <?php
+                            echo "<select name='id_stasiun1' id='id_stasiun1' required>
+                                <option value='' disabled selected>-Pilih Stasiun-</option>";
+                                foreach ($id_stasiun1->result() as $row_stasiun) {  
+                                    echo "<option value='".$row_stasiun->id_stasiun."'>".$row_stasiun->nama."</option>";
+                                }
+                            echo"</select>";
+                    ?>
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -80,12 +83,14 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Penyumbang</label>
                 <div class="col-md-5">
-                    <select name="penyumbang" id="penyumbang" class="form-control" required onclick="ltarik()" >
-                        <option value="">--Pilih Penyumbang--</option>
-                        <option value="isikan value">Anggota1</option>
-                        <option value="isikan value">Anggota2</option>
-                        <option value="isikan value">dst..</option>
-                    </select>
+                    <?php
+                            echo "<select name='id_penyumbang1' id='id_penyumbang1' required>
+                                <option value='' disabled selected>-Pilih No. Kartu Anggota-</option>";
+                                foreach ($id_penyumbang1->result() as $row_penyumbang) {  
+                                    echo "<option value='".$row_penyumbang->no_kartu."'>".$row_penyumbang->no_kartu."</option>";
+                                }
+                            echo"</select>";
+                    ?>
                     <span class="help-block"></span>
                 </div>
             </div>

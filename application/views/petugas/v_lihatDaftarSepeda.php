@@ -13,6 +13,24 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->nomor ; ?></td>
+				<td class = "center"><?php echo $row->merk ; ?></td>
+				<td class = "center"><?php echo $row->jenis ; ?></td>
+				<td class = "center"><?php echo $row->nama ; ?></td>
+				<td class = "center"><?php echo $row->status ; ?></td>
+				<td class = "center"><?php echo $row->no_kartu_penyumbang ; ?></td>
+														
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

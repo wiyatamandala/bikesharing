@@ -10,6 +10,25 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+				$no = 1;
+					foreach ($data->result() as $row){
+			?>
+				
+
+				<td class = "center"><?php echo $no++; ?></td>
+				<td class = "center"><?php echo $row->ktp ; ?></td>
+				<td class = "center"><?php echo $row->start_datetime ; ?></td>
+				<td class = "center"><?php echo $row->end_datetime ; ?></td>
+				<td class = "center"><?php echo $row->nama ; ?></td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

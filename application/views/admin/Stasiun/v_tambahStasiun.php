@@ -23,7 +23,8 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>isikan fungsi simpan controller" onsubmit="return validasi_input(this);">
+<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/stasiun/simpan" onsubmit="return validasi_input(this);">
+    <input name="auto_id" id="auto_id" class="form-control" type="hidden" value="<?php echo $auto_id;?>">
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -39,7 +40,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Nama</label>
                 <div class="col-md-5">
-                    <input name="nama" id="nama" placeholder="Nama Stasiun" class="form-control" type="text" required>
+                    <input name="nama_stasiun" id="nama_stasiun" placeholder="Nama Stasiun" class="form-control" type="text" required>
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -55,7 +56,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Latitude</label>
                 <div class="col-md-4">
-                    <input name="latitude" id="latitude" placeholder="Latitude" class="form-control" type="text" required>
+                    <input name="lat" id="lat" placeholder="Latitude" class="form-control" type="text" required>
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -63,7 +64,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Longitude</label>
                 <div class="col-md-4">
-                    <input name="longitude" id="longitude" placeholder="Longitude" class="form-control" type="text" required>
+                    <input name="long" id="long" placeholder="Longitude" class="form-control" type="text" required>
                     <span class="help-block"></span>
                 </div>
             </div>

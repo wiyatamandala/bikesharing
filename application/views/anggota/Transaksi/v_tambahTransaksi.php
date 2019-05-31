@@ -23,7 +23,10 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/..." onsubmit="return validasi_input(this);">
+<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>anggota/transaksi/simpan" onsubmit="return validasi_input(this);">
+    <input name="no_kartu_anggota" id="no_kartu_anggota" type="hidden" class="form-control" value="<?php echo $no_kartu_anggota;?>">
+    <input name="date_time" id="date_time" type="hidden" class="form-control" value="<?php echo date("Y-m-d h:i:s");?>">
+    <input name="jenis" id="jenis" type="hidden" class="form-control" value="ShareBike Pay">
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -39,7 +42,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Nominal</label>
                 <div class="col-md-4">
-                    <input name="nominal" id="nominal" placeholder="Nominal TopUp" class="form-control" type="text" required>
+                    <input name="nominal" id="nominal" placeholder="Nominal TopUp" class="form-control" type="number" min="1" required>
                     <span class="help-block"></span>
                 </div>
             </div>

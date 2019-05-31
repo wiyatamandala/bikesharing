@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Petugas extends CI_Controller {
 
+	function __construct(){
+		parent::__construct();
+		$this->load->model('m_petugas');
+		if($this->session->userdata('role') != 'Petugas'){
+			redirect('login');
+		}
+		date_default_timezone_set('Asia/Jakarta');
+	}
+
 
 	public function index()
 	{
@@ -13,23 +22,8 @@ class Petugas extends CI_Controller {
 		$isi['sub_judul'] 		= '';
 		$isi['sub_sub_judul'] 	= '';
 
-		if($this->uri->segment(4)=="delete_success"){
-            $isi['message']='<div class="alert alert-success fade in">
-									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-									Data sukses dihapus
-							</div>';
-		}
-        else if($this->uri->segment(4)=="simpan_success"){
-            $isi['message']='<div class="alert alert-success fade in">
-									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-									Data sukses disimpan
-							</div>';
-        }
-        else{
-            $isi['message']='';
-        }
            	
-       
+       	$isi['data']		= $this->m_petugas->tampildata();
 		$this->load->view('petugas/v_homePetugas',$isi);
     }
 

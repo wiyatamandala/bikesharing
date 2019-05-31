@@ -23,7 +23,8 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>isikan fungsi simpan controller" onsubmit="return validasi_input(this);">
+<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/voucher/simpan" onsubmit="return validasi_input(this);">
+    <input name="auto_id" id="auto_id" class="form-control" type="hidden" value="<?php echo $auto_id;?>">
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -55,7 +56,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Nilai Poin</label>
                 <div class="col-md-3">
-                    <input name="nilaiPoin" id="nilaiPoin" placeholder="Nilai Poin" class="form-control" type="text" required>
+                    <input name="nilai_poin" id="nilai_poin" placeholder="Nilai Poin" class="form-control" type="text" required>
                     <span class="help-block"></span>
                 </div>
             </div>

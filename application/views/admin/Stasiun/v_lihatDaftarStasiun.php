@@ -13,6 +13,38 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+				$no = 1;
+					foreach ($data->result() as $row){
+			?>
+				
+
+				<td class = "center"><?php echo $no++; ?></td>
+				<td class = "center"><?php echo $row->nama ; ?></td>
+				<td class = "center"><?php echo $row->alamat ; ?></td>
+				<td class = "center"><?php echo $row->lat ; ?></td>
+				<td class = "center"><?php echo $row->long ; ?></td>
+														
+				<td class = "center">
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>admin/stasiun/edit/<?php echo $row->id_stasiun; ?>" class="tooltip-success" data-rel="tooltip" title="Edit">
+							<i class="ace-icon fa fa-pencil bigger-130"></i>
+						</a>&nbsp; &nbsp;
+
+						<a class="red" href="<?php echo base_url()?>admin/stasiun/delete/<?php echo $row->id_stasiun; ?>"class="tooltip-error" data-rel="tooltip" title="Delete" onclick="return confirm('Anda yakin akan menghapus data ini ?'); ">
+							<i class="ace-icon fa fa-trash-o bigger-130"></i>
+						</a>
+						
+					</div>
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

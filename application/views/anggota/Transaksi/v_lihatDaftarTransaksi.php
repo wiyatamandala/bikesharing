@@ -1,3 +1,5 @@
+<?php echo $message;?>	
+
 	<table id="dynamic-table" class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -10,6 +12,22 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					$no = 1;
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $no++; ?></td>
+				<td class = "center"><?php echo $row->date_time ; ?></td>
+				<td class = "center"><?php echo $row->jenis ; ?></td>
+				<td class = "center"><?php echo $row->nominal ; ?></td>
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

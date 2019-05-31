@@ -93,7 +93,7 @@
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<span class="user-info">
 									<small>Selamat Datang,</small>
-									<?php echo ucfirst($this->session->userdata('username')); ?>
+									<?php echo ucfirst($this->session->userdata('name')); ?>
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -102,9 +102,18 @@
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 
 								<li>
-									<a href="<?php echo base_url();?>silahkan isi">
+									<a href="<?php echo base_url();?>#">
 										<i class="ace-icon fa fa-user"></i>
 										Profile
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="<?php echo base_url();?>anggota/saldo">
+										<i class="ace-icon fa fa-bar-chart-o"></i>
+										Saldo ShareBike Pay
 									</a>
 								</li>
 

@@ -14,6 +14,37 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+					foreach ($data->result() as $row){
+			?>
+				
+				<td class = "center"><?php echo $row->nomor ; ?></td>
+				<td class = "center"><?php echo $row->merk ; ?></td>
+				<td class = "center"><?php echo $row->jenis ; ?></td>
+				<td class = "center"><?php echo $row->nama ; ?></td>
+				<td class = "center"><?php echo $row->status ; ?></td>
+				<td class = "center"><?php echo $row->no_kartu_penyumbang ; ?></td>
+														
+				<td class = "center">
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>admin/sepeda/edit/<?php echo $row->nomor; ?>" class="tooltip-success" data-rel="tooltip" title="Edit">
+							<i class="ace-icon fa fa-pencil bigger-130"></i>
+						</a>&nbsp; &nbsp;
+
+						<a class="red" href="<?php echo base_url()?>admin/sepeda/delete/<?php echo $row->nomor; ?>"class="tooltip-error" data-rel="tooltip" title="Delete" onclick="return confirm('Anda yakin akan menghapus data ini ?'); ">
+							<i class="ace-icon fa fa-trash-o bigger-130"></i>
+						</a>
+						
+					</div>
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

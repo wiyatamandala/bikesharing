@@ -14,6 +14,39 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+				$no = 1;
+					foreach ($data->result() as $row){
+			?>
+				
+
+				<td class = "center"><?php echo $no++; ?></td>
+				<td class = "center"><?php echo $row->judul ; ?></td>
+				<td class = "center"><?php echo $row->deskripsi ; ?></td>
+				<td class = "center"><?php echo $row->tgl_mulai ; ?></td>
+				<td class = "center"><?php echo $row->tgl_akhir ; ?></td>
+				<td class = "center"><?php echo $row->is_free ; ?></td>
+														
+				<td class = "center">
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>admin/acara/edit/<?php echo $row->id_acara; ?>" class="tooltip-success" data-rel="tooltip" title="Edit">
+							<i class="ace-icon fa fa-pencil bigger-130"></i>
+						</a>&nbsp; &nbsp;
+
+						<a class="red" href="<?php echo base_url()?>admin/acara/delete/<?php echo $row->id_acara; ?>"class="tooltip-error" data-rel="tooltip" title="Delete" onclick="return confirm('Anda yakin akan menghapus data ini ?'); ">
+							<i class="ace-icon fa fa-trash-o bigger-130"></i>
+						</a>
+						
+					</div>
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

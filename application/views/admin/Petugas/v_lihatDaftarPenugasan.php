@@ -13,6 +13,38 @@
 			</tr>
 		</thead>
 			<!-- isi taruh di sini -->
+			<tbody>
+			<tr>
+			<?php
+				$no = 1;
+					foreach ($data->result() as $row){
+			?>
+				
+
+				<td class = "center"><?php echo $no++; ?></td>
+				<td class = "center"><?php echo $row->ktp ; ?></td>
+				<td class = "center"><?php echo $row->start_datetime ; ?></td>
+				<td class = "center"><?php echo $row->end_datetime ; ?></td>
+				<td class = "center"><?php echo $row->nama ; ?></td>
+														
+				<td class = "center">
+					<div class="hidden-sm hidden-xs action-buttons">
+						<a class="green" href="<?php echo base_url()?>admin/petugas/edit/<?php echo $row->ktp; ?>/<?php echo $row->start_datetime; ?>/<?php echo $row->id_stasiun; ?>" class="tooltip-success" data-rel="tooltip" title="Edit">
+							<i class="ace-icon fa fa-pencil bigger-130"></i>
+						</a>&nbsp; &nbsp;
+
+						<a class="red" href="<?php echo base_url()?>admin/petugas/delete/<?php echo $row->ktp; ?>/<?php echo $row->start_datetime; ?>/<?php echo $row->id_stasiun; ?>"class="tooltip-error" data-rel="tooltip" title="Delete" onclick="return confirm('Anda yakin akan menghapus data ini ?'); ">
+							<i class="ace-icon fa fa-trash-o bigger-130"></i>
+						</a>
+						
+					</div>
+				</td>
+
+			</tr>
+
+					<?php }?>
+
+		</tbody>
 
 	</table>
 

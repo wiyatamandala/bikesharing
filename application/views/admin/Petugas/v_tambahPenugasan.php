@@ -23,7 +23,7 @@
 
 
 <body>
-<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>isikan fungsi simpan controller" onsubmit="return validasi_input(this);">
+<form id="tambahPengguna" enctype="multipart/form-data" class="form-horizontal" method="POST" action="<?php echo base_url();?>admin/petugas/simpan" onsubmit="return validasi_input(this);">
 
 <?php if (isset($error)): ?>
      <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -39,12 +39,14 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Petugas</label>
                 <div class="col-md-5">
-                    <select name="level" id="petugas" class="form-control" required onclick="ltarik()" >
-                        <option value="">--Pilih Petugas--</option>
-                        <option value="isikan value">Petugas1</option>
-                        <option value="isikan value">Petugas2</option>
-                        <option value="isikan value">dst..</option>
-                    </select>
+                    <?php
+                            echo "<select name='id_petugas1' id='id_petugas1' required>
+                                <option value='' disabled selected>-Pilih Petugas-</option>";
+                                foreach ($id_petugas1->result() as $row_petugas) {  
+                                    echo "<option value='".$row_petugas->ktp."'>".$row_petugas->ktp."</option>";
+                                }
+                            echo"</select>";
+                    ?>
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -52,7 +54,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Tanggal Mulai</label>
                 <div class="col-md-5">
-                    <input name="tanggalMulai" id="tanggalMulai" placeholder="Tanggal Mulai" class="form-control" type="datetime-local" required>
+                    <input name="start_datetime" id="start_datetime" placeholder="Tanggal Mulai" class="form-control" type="datetime-local" required>
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -60,7 +62,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Tanggal Selesai</label>
                 <div class="col-md-5">
-                    <input name="tanggalSelesai" id="tanggalSelesai" placeholder="Tanggal Selesai" class="form-control" type="datetime-local" required>
+                    <input name="end_datetime" id="end_datetime" placeholder="Tanggal Selesai" class="form-control" type="datetime-local" required>
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -68,12 +70,14 @@
             <div class="form-group">
                 <label class="control-label col-md-3">Stasiun</label>
                 <div class="col-md-4">
-                    <select name="level" id="stasiun" class="form-control" required onclick="ltarik()" >
-                        <option value="">--Pilih Stasiun--</option>
-                        <option value="isikan value">Stasiun1</option>
-                        <option value="isikan value">Stasiun2</option>
-                        <option value="isikan value">dst..</option>
-                    </select>
+                    <?php
+                            echo "<select name='id_stasiun1' id='id_stasiun1' required>
+                                <option value='' disabled selected>-Pilih Stasiun-</option>";
+                                foreach ($id_stasiun1->result() as $row_stasiun) {  
+                                    echo "<option value='".$row_stasiun->id_stasiun."'>".$row_stasiun->nama."</option>";
+                                }
+                            echo"</select>";
+                    ?>
                     <span class="help-block"></span>
                 </div>
             </div>
